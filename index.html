@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸Curtain Tiebacks Clips - Beauty House | Elegan & Magnetik</title>
-    <meta name="description" content="Curtain Tiebacks Clips bergaya Japanese elegan dengan magnet kuat. Tersedia 4 varian. Harga promo Rp 154.900 dari Rp 199.999. Order sekarang!">
-    <meta name="keywords" content="curtain tiebacks, clips gorden, aksesori gorden, magnet gorden, dekorasi jendela">
-    <meta name="author" content="Beauty House">
+    <title>🌸Curtain Tiebacks Clips - Aksesori Gorden Elegan | Beauty House</title>
+    <meta name="description" content="Curtain Tiebacks Clips gaya Japanese elegan. Magnet kuat, 4 varian type, bahan premium. Diskon 25% hari ini!">
+    <meta name="keywords" content="curtain tiebacks, clips gorden, aksesori gorden, curtain clips, gorden elegan">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
@@ -26,9 +25,11 @@
     <!-- Anime.js -->
     <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
     
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Vanta.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    
+    <!-- Three.js for Vanta -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     
     <!-- Custom Tailwind Config -->
     <script>
@@ -40,30 +41,28 @@
                         'roboto': ['Roboto', 'sans-serif']
                     },
                     colors: {
-                        'primary': '#000000',
-                        'secondary': '#4a4a4a',
-                        'accent': '#c0c0c0',
-                        'light-gray': '#9a9a9a'
+                        'charcoal': '#36454f',
+                        'champagne': '#f7e7ce',
+                        'gold': '#d4af37'
                     },
                     animation: {
-                        'slide-in': 'slideIn 0.5s ease-out',
-                        'fade-in': 'fadeIn 0.8s ease-out',
-                        'bounce-in': 'bounceIn 0.6s ease-out'
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-in-right': 'slide-in-right 0.5s ease-out',
+                        'fade-out': 'fade-out 0.5s ease-out'
                     },
                     keyframes: {
-                        slideIn: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'slide-in-right': {
                             '0%': { transform: 'translateX(100%)', opacity: '0' },
                             '100%': { transform: 'translateX(0)', opacity: '1' }
                         },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        bounceIn: {
-                            '0%': { transform: 'scale(0.3)', opacity: '0' },
-                            '50%': { transform: 'scale(1.05)' },
-                            '70%': { transform: 'scale(0.9)' },
-                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        'fade-out': {
+                            '0%': { opacity: '1' },
+                            '100%': { opacity: '0' }
                         }
                     }
                 }
@@ -72,131 +71,137 @@
     </script>
     
     <style>
-        /* Custom CSS */
-        * {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .font-poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .font-roboto {
-            font-family: 'Roboto', sans-serif;
-        }
-        
-        /* Hero Background */
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(74,74,74,0.6) 100%);
-        }
-        
-        /* Glassmorphism */
-        .glass {
+        /* Custom CSS for premium effects */
+        .glass-effect {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        /* Button Hover Effects */
-        .btn-hover {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .gradient-text {
+            background: linear-gradient(135deg, #d4af37 0%, #f7e7ce 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .btn-hover:hover {
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(54, 69, 79, 0.8) 100%);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, #d4af37 0%, #f7e7ce 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-premium:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
         }
         
-        .btn-hover:active {
-            transform: translateY(0);
+        .feature-icon {
+            background: linear-gradient(135deg, #f7e7ce 0%, #d4af37 100%);
         }
         
-        /* Product Gallery */
-        .gallery-item {
-            transition: all 0.3s ease;
-            cursor: pointer;
+        /* OrderOnline Form Styling */
+        .ooef {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            border-radius: 20px !important;
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1) !important;
         }
         
-        .gallery-item:hover {
-            transform: scale(1.05);
+        .ooef input, .ooef select, .ooef textarea {
+            border-radius: 12px !important;
+            border: 1px solid #e5e7eb !important;
+            font-family: 'Roboto', sans-serif !important;
+            padding: 12px 16px !important;
+        }
+        
+        .ooef button {
+            background: linear-gradient(135deg, #d4af37 0%, #f7e7ce 100%) !important;
+            border-radius: 12px !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .ooef button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4) !important;
         }
         
         /* Social Proof Popup */
-        .social-proof {
+        .social-proof-popup {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 9999;
             max-width: 320px;
-            animation: slideIn 0.5s ease-out;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid #d4af37;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
         }
         
-        @media (max-width: 640px) {
-            .social-proof {
-                max-width: 280px;
-                right: 10px;
-                top: 10px;
-            }
+        .social-proof-popup.show {
+            transform: translateX(0);
         }
         
-        /* OrderOnline Form Styling */
-        .ooef {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        .social-proof-popup.hide {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
         }
         
         /* Countdown Timer */
         .countdown-item {
-            background: linear-gradient(135deg, #000 0%, #4a4a4a 100%);
-            color: white;
-            border-radius: 10px;
-            padding: 1rem;
-            min-width: 80px;
+            background: linear-gradient(135deg, #d4af37 0%, #f7e7ce 100%);
+            border-radius: 8px;
+            padding: 8px 12px;
+            min-width: 60px;
             text-align: center;
         }
         
-        /* Trust Badges */
-        .trust-badge {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .trust-badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        
-        /* Feature Cards */
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-        }
-        
         /* Loading Animation */
-        .loader {
+        .loading-spinner {
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #000;
+            border-top: 3px solid #d4af37;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -208,140 +213,90 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Sticky CTA */
-        .sticky-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            animation: bounceIn 0.6s ease-out;
-        }
-        
-        /* Responsive Typography */
-        .responsive-heading {
-            font-size: clamp(2rem, 5vw, 4rem);
-        }
-        
-        .responsive-subheading {
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
-        }
-        
-        /* Image Optimization */
-        .optimized-img {
-            loading: lazy;
-            decoding: async;
-        }
-        
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #000;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4a4a4a;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .social-proof-popup {
+                max-width: 280px;
+                right: 10px;
+                top: 10px;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    
+<body class="font-roboto bg-gray-50 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-lg">
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="font-poppins font-bold text-2xl text-primary">
+                <div class="font-poppins font-bold text-2xl gradient-text">
                     Beauty House
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-secondary hover:text-primary transition-colors">Home</a>
-                    <a href="#product" class="text-secondary hover:text-primary transition-colors">Produk</a>
-                    <a href="#features" class="text-secondary hover:text-primary transition-colors">Fitur</a>
-                    <a href="#order" class="text-secondary hover:text-primary transition-colors">Pesan</a>
+                    <a href="#home" class="text-gray-700 hover:text-gold transition">Home</a>
+                    <a href="#product" class="text-gray-700 hover:text-gold transition">Produk</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-gold transition">Keunggulan</a>
+                    <a href="#order" class="text-gray-700 hover:text-gold transition">Pesan</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden">
                     <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="container mx-auto px-4 py-4 space-y-4">
-                <a href="#home" class="block text-secondary hover:text-primary transition-colors">Home</a>
-                <a href="#product" class="block text-secondary hover:text-primary transition-colors">Produk</a>
-                <a href="#features" class="block text-secondary hover:text-primary transition-colors">Fitur</a>
-                <a href="#order" class="block text-secondary hover:text-primary transition-colors">Pesan</a>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/50 z-40 hidden">
+        <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-lg p-6">
+            <button id="close-menu" class="absolute top-4 right-4">
+                <i data-feather="x" class="w-6 h-6"></i>
+            </button>
+            <div class="mt-8 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-gold transition">Home</a>
+                <a href="#product" class="block text-gray-700 hover:text-gold transition">Produk</a>
+                <a href="#benefits" class="block text-gray-700 hover:text-gold transition">Keunggulan</a>
+                <a href="#order" class="block text-gray-700 hover:text-gold transition">Pesan</a>
             </div>
         </div>
-    </nav>
-    
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Video/Image -->
-        <div class="absolute inset-0 z-0">
-            <video autoplay muted loop class="w-full h-full object-cover hidden md:block">
-                <source src="https://s7.ezgif.com/tmp/ezgif-784a3995f3bb8d.mp4" type="video/mp4">
-            </video>
-            <img src="https://mv4.techjodo.com/uploads/6ed4af3d-ebf6-41e3-8ed0-f88c791c9a56/818/679113b387f55_673f3764acd80_yh.jpeg" alt="Curtain Tiebacks" class="w-full h-full object-cover md:hidden">
-            <div class="hero-bg absolute inset-0"></div>
-        </div>
+        <!-- Vanta Background -->
+        <div id="vanta-bg" class="absolute inset-0"></div>
+        
+        <!-- Hero Overlay -->
+        <div class="hero-overlay absolute inset-0"></div>
         
         <!-- Hero Content -->
         <div class="relative z-10 container mx-auto px-4 text-center text-white">
-            <h1 class="responsive-heading font-poppins font-black mb-6" data-aos="fade-up">
-                🌸 Curtain Tiebacks Clips
-            </h1>
-            <p class="responsive-subheading font-roboto font-light mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                Aksesori gorden bergaya Japanese elegan dengan magnet kuat untuk tampilan jendela yang lebih sophisticated dan terorganisir
-            </p>
-            
-            <!-- Price Section -->
-            <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
-                <div class="inline-flex items-center space-x-4 bg-white/20 backdrop-blur-md rounded-full px-8 py-4">
-                    <span class="text-2xl line-through text-gray-300">Rp 199.999</span>
-                    <span class="text-4xl font-poppins font-bold text-yellow-400">Rp 154.900</span>
-                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">25% OFF</span>
+            <div class="max-w-4xl mx-auto">
+                <h1 class="font-poppins font-black text-4xl md:text-6xl lg:text-7xl mb-6 animate-fade-in">
+                    🌸 <span class="gradient-text">Curtain Tiebacks Clips</span>
+                </h1>
+                <p class="font-roboto text-xl md:text-2xl mb-8 opacity-90">
+                    Aksesori gorden elegan gaya Japanese ✨<br>
+                    Magnet kuat • 4 varian type • Bahan premium
+                </p>
+                
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="glass-effect px-4 py-2 rounded-full flex items-center gap-2">
+                        <i data-feather="shield" class="w-5 h-5 text-gold"></i>
+                        <span class="text-sm">Garansi 30 Hari</span>
+                    </div>
+                    <div class="glass-effect px-4 py-2 rounded-full flex items-center gap-2">
+                        <i data-feather="truck" class="w-5 h-5 text-gold"></i>
+                        <span class="text-sm">Pengirima Cepat</span>
+                    </div>
+                    <div class="glass-effect px-4 py-2 rounded-full flex items-center gap-2">
+                        <i data-feather="star" class="w-5 h-5 text-gold"></i>
+                        <span class="text-sm">Best Seller</span>
+                    </div>
                 </div>
-                <p class="mt-4 text-lg">Harga untuk 2 PCS (Sepasang)</p>
-            </div>
-            
-            <!-- Trust Badges -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" data-aos="fade-up" data-aos-delay="600">
-                <div class="trust-badge">
-                    <i data-feather="shield" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
-                    <p class="text-sm font-semibold">Garansi 30 Hari</p>
-                </div>
-                <div class="trust-badge">
-                    <i data-feather="truck" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
-                    <p class="text-sm font-semibold">Gratis Ongkir</p>
-                </div>
-                <div class="trust-badge">
-                    <i data-feather="clock" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
-                    <p class="text-sm font-semibold">Pengiriman Cepat</p>
-                </div>
-                <div class="trust-badge">
-                    <i data-feather="star" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
-                    <p class="text-sm font-semibold">Bahan Premium</p>
-                </div>
-            </div>
-            
-            <!-- CTA Button -->
-            <div data-aos="fade-up" data-aos-delay="800">
-                <a href="#order" class="inline-block bg-primary hover:bg-gray-800 text-white font-poppins font-bold text-xl px-12 py-4 rounded-full btn-hover shadow-2xl">
-                    Pesan Sekarang
+                
+                <!-- CTA Button -->
+                <a href="#order" class="btn-premium inline-block px-8 py-4 rounded-full text-black font-poppins font-bold text-lg hover:scale-105 transition transform">
+                    AMBIL PROMO - BELI 1 GRATIS 1
                 </a>
             </div>
         </div>
@@ -351,7 +306,7 @@
             <i data-feather="chevron-down" class="w-8 h-8 text-white"></i>
         </div>
     </section>
-    
+
     <!-- Product Showcase -->
     <section id="product" class="py-20 bg-white">
         <div class="container mx-auto px-4">
@@ -388,305 +343,339 @@
                     <h3 class="font-poppins font-bold text-xl mb-2">TYPE - TWB</h3>
                     <p class="text-secondary">Beauty Pink</p>
                 </div>
+            
+            <!-- Product Gallery -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Main Product Image -->
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://nava.orderonline.id/curtain-tiebacks-clips-01')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7ra0g-mcsosoi6leb9e6@resize_w450_nl.webp" 
+                         alt="Curtain Tiebacks Clips" 
+                         class="w-full h-96 object-cover rounded-2xl shadow-lg group-hover:shadow-2xl transition">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition rounded-2xl flex items-center justify-center">
+                        <i data-feather="zoom-in" class="w-12 h-12 text-white"></i>
+                    </div>
+                </div>
+            
+            <!-- Product Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="cursor-pointer group" onclick="openLightbox('https://cdn.hotishop.com/image/ef8a9a6008c178bdb2b6244e42d834d9db987899-600.png')">
+                    <img src="https://cdn.hotishop.com/image/e9d788ab6ce1aa1dcc0ed31a0c843983da5766dd-600.png" 
+                         alt="Gallery 1" 
+                         class="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition">
+                </div>
+                <div class="cursor-pointer group" onclick="openLightbox('https://mv4.techjodo.com/uploads/6ed4af3d-ebf6-41e3-8ed0-f88c791c9a56/830/6791154d13946_673f3764acd80_yh.jpeg')">
+                    <img src="https://mv4.techjodo.com/uploads/6ed4af3d-ebf6-41e3-8ed0-f88c791c9a56/830/6791154d13946_673f3764acd80_yh.jpeg" 
+                         alt="Gallery 2" 
+                         class="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition">
+                </div>
+                <div class="cursor-pointer group" onclick="openLightbox('https://mv4.techjodo.com/uploads/6ed4af3d-ebf6-41e3-8ed0-f88c791c9a56/822/6791144ea8ec0_673f374f5730f_tie-(1).jpeg')">
+                    <img src="https://cdn.hotishop.com/image/ef8a9a6008c178bdb2b6244e42d834d9db987899.png" 
+                         alt="Gallery 3" 
+                         class="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition">
+                </div>
+                <div class="cursor-pointer group" onclick="openLightbox('https://down-id.img.susercontent.com/file/sg-11134201-7qvg1-ljzgt2rg0e53a6.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/sg-11134201-7qvg1-ljzgt2rg0e53a6.webp" 
+                         alt="Gallery 4" 
+                         class="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="feature-card text-center" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://cdn.orderonline.id/uploads/images_1698821759487538047.png" alt="Type TWB" class="w-full h-48 object-cover rounded-lg mb-4 optimized-img">
-                    <h3 class="font-poppins font-bold text-xl mb-2">BEST SELLER</h3>
-                    <p class="text-secondary">TWA-Blue TWB-Purple TR-Brown SG-White</p>
-                </div>
-            </div>
-            
-            <!-- Product Specifications -->
-            <div class="bg-gray-100 rounded-2xl p-8" data-aos="fade-up">
-                <h3 class="font-poppins font-bold text-2xl mb-6 text-center">Spesifikasi Produk</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="bg-primary text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                            <i data-feather="circle" class="w-10 h-10"></i>
-                        </div>
-                        <h4 class="font-poppins font-semibold mb-2">Diameter</h4>
-                        <p class="text-secondary">7.5 cm</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-primary text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                            <i data-feather="move" class="w-10 h-10"></i>
-                        </div>
-                        <h4 class="font-poppins font-semibold mb-2">Panjang</h4>
-                        <p class="text-secondary">39-42 cm<br><span class="text-sm">(46 cm untuk TWA & TWB)</span></p>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-primary text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                            <i data-feather="zap" class="w-10 h-10"></i>
-                        </div>
-                        <h4 class="font-poppins font-semibold mb-2">Magnet</h4>
-                        <p class="text-secondary">Magnet Kuat</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-gray-50">
+    <!-- Product Specifications -->
+    <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-poppins font-bold text-center mb-4" data-aos="fade-up">
-                Keunggulan Produk
-            </h2>
-            <p class="text-center text-secondary mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                Mengapa Memilih Curtain Tiebacks Clips Kami?
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i data-feather="award" class="w-8 h-8 text-primary"></i>
-                    </div>
-                    <h3 class="font-poppins font-bold text-xl mb-4">Bahan Premium</h3>
-                    <p class="text-secondary">Material berkualitas tinggi dengan finishing sempurna untuk tampilan elegan</p>
-                </div>
-                
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i data-feather="magnet" class="w-8 h-8 text-primary"></i>
-                    </div>
-                    <h3 class="font-poppins font-bold text-xl mb-4">Magnet Kuat</h3>
-                    <p class="text-secondary">Dilengkapi magnet neodymium kuat untuk menjaga gorden tetap terikat</p>
-                </div>
-                
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i data-feather="scissors" class="w-8 h-8 text-primary"></i>
-                    </div>
-                    <h3 class="font-poppins font-bold text-xl mb-4">Mudah Dipasang</h3>
-                    <p class="text-secondary">Desain praktis tanpa peralatan khusus, siap pakai dalam hitungan detik</p>
-                </div>
-                
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i data-feather="eye" class="w-8 h-8 text-primary"></i>
-                    </div>
-                    <h3 class="font-poppins font-bold text-xl mb-4">Desain Elegan</h3>
-                    <p class="text-secondary">Gaya Japanese minimalis yang cocok untuk berbagai tema dekorasi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pricing & Promo Section -->
-    <section class="py-20 bg-primary text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-poppins font-bold mb-8" data-aos="fade-up">
-                Promo Spesial Hari Ini
-            </h2>
-            
-            <!-- Countdown Timer -->
-            <div class="flex justify-center space-x-4 mb-8" data-aos="fade-up" data-aos-delay="200">
-                <div class="countdown-item">
-                    <div id="hours" class="text-3xl font-bold">00</div>
-                    <div class="text-sm">Jam</div>
-                </div>
-                <div class="countdown-item">
-                    <div id="minutes" class="text-3xl font-bold">00</div>
-                    <div class="text-sm">Menit</div>
-                </div>
-                <div class="countdown-item">
-                    <div id="seconds" class="text-3xl font-bold">00</div>
-                    <div class="text-sm">Detik</div>
-                </div>
-            </div>
-            
-            <!-- Price Display -->
-            <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
-                <p class="text-xl mb-4">Harga Normal:</p>
-                <p class="text-3xl line-through text-gray-400">Rp 199.999</p>
-                <p class="text-2xl mt-4">Harga Promo:</p>
-                <p class="text-6xl font-poppins font-black text-yellow-400">Rp 154.900</p>
-                <p class="text-lg mt-4">Untuk 2 PCS (Sepasang)</p>
-            </div>
-            
-            <!-- CTA Button -->
-            <div data-aos="fade-up" data-aos-delay="600">
-                <a href="#order" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-primary font-poppins font-bold text-xl px-12 py-4 rounded-full btn-hover shadow-2xl">
-                    Pesan Sekarang - Diskon 25%
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Order Section -->
-    <section id="order" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-poppins font-bold text-center mb-4" data-aos="fade-up">
-                Pesan Sekarang
-            </h2>
-            <p class="text-center text-secondary mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                Isi formulir di bawah ini untuk memesan Curtain Tiebacks Clips favorit Anda
-            </p>
-            
             <div class="max-w-4xl mx-auto">
-                <!-- OrderOnline Form -->
-                <div class="ooef" data-aos="fade-up" data-aos-delay="400">
-                    <!-- OrderOnline Embed Code - v8.0.4 -->
-                    <div class="ooef">
-                        <form class="orderonline-embed-form" data-username="nava" data-product-slug="curtain-tiebacks-clips-01" data-product-id="68df2d74d35eaf783e0c9ce8" id="oo-embed-form-curtain-tiebacks-clips-01-4717" data-origin="orderonline">
-                            <div class="ooef-loader">
-                                <style>
-                                    .ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}
-                                    @keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
-                                    @-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
-                                    .ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}
-                                    .ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}
-                                    .ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}
-                                    @-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
-                                    @keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
-                                </style>
-                                <div aria-live="polite" role="status">
-                                    <div>Loading...</div>
-                                </div>
-                            </div>
-                        </form>
+                <h3 class="font-poppins font-bold text-3xl text-center mb-12 text-gray-800">
+                    Spesifikasi Produk
+                </h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h4 class="font-poppins font-semibold text-xl mb-4 text-gray-800">Ukuran & Material</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-feather="circle" class="w-5 h-5 text-gold"></i>
+                                <span>Diameter: 7.5 cm</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-feather="move" class="w-5 h-5 text-gold"></i>
+                                <span>Panjang: 39-42 cm (Type SG & TR)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-feather="move" class="w-5 h-5 text-gold"></i>
+                                <span>Panjang: 46 cm (Type TWA & TWB)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-feather="zap" class="w-5 h-5 text-gold"></i>
+                                <span>Dilengkapi magnet kuat</span>
+                            </li>
+                        </ul>
                     </div>
-                    <script>
-                        if (typeof xLogError != 'function') {
-                            var xLogError = function (error) {
-                                var req = new XMLHttpRequest();
-                                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
-                                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
-                                req.open('POST', 'https://api.orderonline.id/log', true);
-                                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                                req.send(params);
-                            };
-                        }
-                        try {
-                            if (typeof xEmbedScript != 'function') {
-                                var xEmbedScript = function () {
-                                    !function(w, d, e, v, id, t, s) {
-                                        if (d.getElementById(id)) return;
-                                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
-                                        s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-                                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
-                                };
-                            }
-                            if (typeof xEmbedInit != 'function') {
-                                var xEmbedInit = function (w, n) {
-                                    if (w.ooe) return;
-                                    n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
-                                    if (!w._ooe) w._ooe = n; n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
-                                };
-                            }
-                            xEmbedInit(window);
-                            ooe('setup', 'redirect', 'https://nava.orderonline.id');
-                            ooe('init', '5f119cd08dcbdb2737678706', '68df2d74d35eaf783e0c9ce8', '68df2d74d35eaf783e0c9ce9', 'oo-embed-form-curtain-tiebacks-clips-01-4717', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
-                            if (!window.jQuery) {
-                                !function(w, d, e, v, id, t, s) {
-                                    if (d.getElementById(id)) return;
-                                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
-                                    t.addEventListener('load', xEmbedScript);
-                                    s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-                                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
-                            } else {
-                                xEmbedScript();
-                            }
-                        } catch (e) {
-                            xLogError(e); throw e;
-                        }
-                    </script>
-                    <!-- End OrderOnline Embed Code -->
-                </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h4 class="font-poppins font-semibold text-xl mb-4 text-gray-800">Varian Type</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-champagne/20 p-3 rounded-lg text-center">
+                                <span class="font-semibold">TYPE - SG</span>
+                            </div>
+                            <div class="bg-champagne/20 p-3 rounded-lg text-center">
+                                <span class="font-semibold">TYPE - TR</span>
+                            </div>
+                            <div class="bg-champagne/20 p-3 rounded-lg text-center">
+                                <span class="font-semibold">TYPE - TWA</span>
+                            </div>
+                            <div class="bg-champagne/20 p-3 rounded-lg text-center">
+                                <span class="font-semibold">TYPE - TWB</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="bg-primary text-white py-12">
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center mb-12">
+                <h2 class="font-poppins font-bold text-4xl md:text-5xl mb-4 text-gray-800">
+                    Kenapa Pilih Produk Kami?
+                </h2>
+                <p class="font-roboto text-xl text-gray-600">
+                    Keunggulan yang membuat kami berbeda
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center group">
+                    <div class="feature-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                        <i data-feather="award" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl mb-3 text-gray-800">Gaya Japanese Elegan</h3>
+                    <p class="text-gray-600">Desain minimalis khas Jepang yang menambah keindahan ruangan Anda</p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="feature-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                        <i data-feather="magnet" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl mb-3 text-gray-800">Magnet Kuat</h3>
+                    <p class="text-gray-600">Dilengkapi magnet berkualitas tinggi untuk menjaga gorden tetap terbuka</p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="feature-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                        <i data-feather="package" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl mb-3 text-gray-800">4 Varian Type</h3>
+                    <p class="text-gray-600">Pilihan type yang beragam sesuai kebutuhan dan selera Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Promo -->
+    <section class="py-20 bg-gradient-to-br from-champagne/20 to-gold/10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="font-poppins font-bold text-4xl md:text-5xl mb-8 text-gray-800">
+                    Promo Spesial Hari Ini
+                </h2>
+                
+                <!-- Countdown Timer -->
+                <div class="mb-8">
+                    <p class="text-lg text-gray-600 mb-4">Penawaran berakhir dalam:</p>
+                    <div class="flex justify-center gap-4" id="countdown">
+                        <div class="countdown-item">
+                            <div class="text-2xl font-bold" id="hours">00</div>
+                            <div class="text-xs">Jam</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="text-2xl font-bold" id="minutes">00</div>
+                            <div class="text-xs">Menit</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="text-2xl font-bold" id="seconds">00</div>
+                            <div class="text-xs">Detik</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pricing -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                    <p class="text-lg text-gray-600 mb-2">Harga Normal</p>
+                    <p class="text-3xl font-roboto line-through text-gray-400 mb-4">Rp 199.999</p>
+                    <p class="text-lg text-gray-600 mb-2">Harga Promo</p>
+                    <p class="text-5xl font-poppins font-bold gradient-text mb-6">Rp 154.900</p>
+                    <p class="text-sm text-gray-500 mb-6">*Harga untuk 2 PCS (sepasang)</p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Pink</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Purple</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Blue</span>
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Brown</span>
+                    </div>
+                    
+                    <a href="#order" class="btn-premium inline-block px-8 py-4 rounded-full text-black font-poppins font-bold text-lg hover:scale-105 transition transform">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section id="order" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-poppins font-bold text-4xl md:text-5xl mb-4 text-gray-800">
+                    Pesan Sekarang
+                </h2>
+                <p class="font-roboto text-xl text-gray-600">
+                    Isi form di bawah ini untuk memesan
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <!-- OrderOnline Form -->
+                <div class="ooef rounded-3xl p-8">
+                    <form class="orderonline-embed-form" data-username="nava" data-product-slug="curtain-tiebacks-clips-01" data-product-id="68df2d74d35eaf783e0c9ce8" id="oo-embed-form-curtain-tiebacks-clips-01-4717" data-origin="orderonline">
+                        <div class="ooef-loader">
+                            <style>
+                                .ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}
+                                @keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                @-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                .ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}
+                                .ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}
+                                .ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}
+                                @-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                                @keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                            </style>
+                            <div aria-live="polite" role="status">
+                                <div>Loading...</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="font-poppins font-bold text-2xl mb-4">Beauty House</h3>
-                    <p class="text-gray-300">Toko aksesori rumah tangga berkualitas dengan desain elegan</p>
+                    <h3 class="font-poppins font-bold text-2xl gradient-text mb-4">Beauty House</h3>
+                    <p class="text-gray-400">Toko aksesori rumah terpercaya dengan produk berkualitas premium</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-semibold mb-4">Produk</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-gold transition">Curtain Accessories</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Home Decor</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Interior Design</a></li>
+                    </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-poppins font-semibold mb-4">Kontak</h4>
-                    <p class="text-gray-300 mb-2">
-                        <i data-feather="phone" class="w-4 h-4 inline mr-2"></i>
-                        081252355305
-                    </p>
-                    <p class="text-gray-300">
-                        <i data-feather="message-circle" class="w-4 h-4 inline mr-2"></i>
-                        WhatsApp
-                    </p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i data-feather="phone" class="w-4 h-4"></i>
+                            0812-5235-5305
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="mail" class="w-4 h-4"></i>
+                            info@beautyhouse.id
+                        </li>
+                    </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-poppins font-semibold mb-4">Ikuti Kami</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                            <i data-feather="instagram" class="w-6 h-6"></i>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gold transition">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                            <i data-feather="facebook" class="w-6 h-6"></i>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gold transition">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                            <i data-feather="twitter" class="w-6 h-6"></i>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gold transition">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-300">&copy; 2024 Beauty House. All rights reserved.</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Beauty House. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
-    <!-- Sticky CTA -->
-    <div class="sticky-cta">
-        <a href="#order" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-primary font-poppins font-bold px-6 py-3 rounded-full shadow-lg btn-hover">
-            <i data-feather="shopping-cart" class="w-5 h-5 inline mr-2"></i>
-            Pesan Sekarang
-        </a>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Product Image">
     </div>
-    
+
     <!-- Social Proof Popup -->
-    <div id="social-proof-popup" class="social-proof hidden">
-        <div class="bg-white rounded-lg shadow-2xl p-4 border-l-4 border-primary">
-            <div class="flex items-start space-x-3">
-                <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
-                    <span class="text-white font-bold text-sm" id="customer-initial">A</span>
-                </div>
-                <div class="flex-1">
-                    <p class="text-sm font-medium text-gray-900" id="customer-message">
-                        Vina dari Jakarta baru saja memesan 🌸Curtain Tiebacks Clips
-                    </p>
-                    <p class="text-xs text-gray-500 mt-1" id="order-time">5 menit yang lalu</p>
-                </div>
+    <div id="social-proof-popup" class="social-proof-popup">
+        <div class="p-4 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-champagne flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-semibold text-sm" id="customer-initial">A</span>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm font-medium text-gray-800" id="customer-message">
+                    Someone just ordered 🌸Curtain Tiebacks Clips
+                </p>
+                <p class="text-xs text-gray-500 mt-1" id="timestamp">1 menit yang lalu</p>
             </div>
         </div>
     </div>
-    
+
     <!-- Scripts -->
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-        
         // Initialize Feather Icons
         feather.replace();
         
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Vanta.js Background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xd4af37,
+            color2: 0xf7e7ce,
+            size: 1.00,
+            backgroundColor: 0x0
         });
         
-        // Smooth Scrolling for Navigation Links
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -701,6 +690,19 @@
                 }
             });
         });
+        
+        // Lightbox
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
         
         // Countdown Timer
         function updateCountdown() {
@@ -723,12 +725,12 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Social Proof Popup System
+        // Social Proof Popup
         const customerNames = ['Vina', 'Dina', 'Kartika', 'Lestari', 'Putri', 'Maya Sari', 'Rani', 'Permata', 'Lestari F'];
-        const customerCities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
+        const cities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
         
         let popupInterval;
-        let hideTimeout;
+        let currentPopup = null;
         
         function getRandomItem(array) {
             return array[Math.floor(Math.random() * array.length)];
@@ -742,156 +744,172 @@
         function showSocialProof() {
             const popup = document.getElementById('social-proof-popup');
             const name = getRandomItem(customerNames);
-            const city = getRandomItem(customerCities);
+            const city = getRandomItem(cities);
             const initial = name.charAt(0);
             const message = `${name} dari ${city} baru saja memesan 🌸Curtain Tiebacks Clips`;
             const time = getRandomTime();
             
             document.getElementById('customer-initial').textContent = initial;
             document.getElementById('customer-message').textContent = message;
-            document.getElementById('order-time').textContent = time;
+            document.getElementById('timestamp').textContent = time;
             
-            popup.classList.remove('hidden');
+            popup.classList.add('show');
+            popup.classList.remove('hide');
             
-            // Auto hide after 5 seconds
-            hideTimeout = setTimeout(() => {
-                popup.classList.add('hidden');
+            currentPopup = setTimeout(() => {
+                hideSocialProof();
             }, 5000);
         }
         
-        // Start social proof popup
-        function startSocialProof() {
-            showSocialProof();
-            popupInterval = setInterval(showSocialProof, 8000);
+        function hideSocialProof() {
+            const popup = document.getElementById('social-proof-popup');
+            popup.classList.add('hide');
+            popup.classList.remove('show');
         }
         
-        // Pause on hover
-        const popup = document.getElementById('social-proof-popup');
-        popup.addEventListener('mouseenter', () => {
-            clearTimeout(hideTimeout);
-            clearInterval(popupInterval);
+        // Pause popup on hover
+        document.getElementById('social-proof-popup').addEventListener('mouseenter', () => {
+            if (currentPopup) {
+                clearTimeout(currentPopup);
+            }
         });
         
-        popup.addEventListener('mouseleave', () => {
-            hideTimeout = setTimeout(() => {
-                popup.classList.add('hidden');
+        document.getElementById('social-proof-popup').addEventListener('mouseleave', () => {
+            currentPopup = setTimeout(() => {
+                hideSocialProof();
             }, 2000);
-            popupInterval = setInterval(showSocialProof, 8000);
         });
         
-        // Start after 3 seconds
-        setTimeout(startSocialProof, 3000);
+        // Start social proof popup
+        function startSocialProof() {
+            // Check if user has seen popups today
+            const lastSeen = localStorage.getItem('socialProofLastSeen');
+            const today = new Date().toDateString();
+            
+            if (lastSeen !== today) {
+                // Show first popup after 3 seconds
+                setTimeout(() => {
+                    showSocialProof();
+                }, 3000);
+                
+                // Continue showing popups every 8 seconds
+                popupInterval = setInterval(() => {
+                    showSocialProof();
+                }, 8000);
+                
+                // Mark as seen today
+                localStorage.setItem('socialProofLastSeen', today);
+            }
+        }
         
-        // Sticky CTA Visibility
-        const stickyCta = document.querySelector('.sticky-cta');
+        // Start social proof after page load
+        window.addEventListener('load', () => {
+            setTimeout(startSocialProof, 2000);
+        });
+        
+        // OrderOnline Integration
+        if (typeof xLogError != 'function') {
+            var xLogError = function (error) {
+                var req = new XMLHttpRequest();
+                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                req.open('POST', 'https://api.orderonline.id/log', true);
+                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                req.send(params);
+            };
+        }
+        
+        try {
+            if (typeof xEmbedScript != 'function') {
+                var xEmbedScript = function () {
+                    !function(w, d, e, v, id, t, s) {
+                        if (d.getElementById(id)) return;
+                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                        s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                };
+            }
+            
+            if (typeof xEmbedInit != 'function') {
+                var xEmbedInit = function (w, n) {
+                    if (w.ooe) return;
+                    n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+                    if (!w._ooe) w._ooe = n;
+                    n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                };
+            }
+            
+            xEmbedInit(window);
+            ooe('setup', 'redirect', 'https://nava.orderonline.id');
+            ooe('init', '5f119cd08dcbdb2737678706', '68df2d74d35eaf783e0c9ce8', '68df2d74d35eaf783e0c9ce9', 'oo-embed-form-curtain-tiebacks-clips-01-4717', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
+            
+            if (!window.jQuery) {
+                !function(w, d, e, v, id, t, s) {
+                    if (d.getElementById(id)) return;
+                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                    t.addEventListener('load', xEmbedScript);
+                    s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+            } else {
+                xEmbedScript();
+            }
+        } catch (e) {
+            xLogError(e);
+            throw e;
+        }
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // Sticky CTA on scroll
         let lastScroll = 0;
-        
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
+            const stickyCTA = document.getElementById('sticky-cta');
             
-            if (currentScroll > 500) {
-                stickyCta.style.display = 'block';
-            } else {
-                stickyCta.style.display = 'none';
+            if (currentScroll > 500 && currentScroll < lastScroll) {
+                // Show sticky CTA when scrolling up
+                if (!stickyCTA) {
+                    const cta = document.createElement('div');
+                    cta.id = 'sticky-cta';
+                    cta.className = 'fixed bottom-4 right-4 z-50';
+                    cta.innerHTML = `
+                        <a href="#order" class="btn-premium inline-block px-6 py-3 rounded-full text-black font-poppins font-semibold shadow-lg animate-float">
+                            Pesan Sekarang
+                        </a>
+                    `;
+                    document.body.appendChild(cta);
+                }
+            } else if (currentScroll < 500 || currentScroll > lastScroll) {
+                // Hide sticky CTA when at top or scrolling down
+                const existingCTA = document.getElementById('sticky-cta');
+                if (existingCTA) {
+                    existingCTA.remove();
+                }
             }
             
             lastScroll = currentScroll;
         });
-        
-        // Image Gallery Lightbox (Simple)
-        const galleryItems = document.querySelectorAll('.gallery-item img');
-        galleryItems.forEach(img => {
-            img.addEventListener('click', function() {
-                // Create overlay
-                const overlay = document.createElement('div');
-                overlay.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4';
-                overlay.innerHTML = `
-                    <div class="max-w-4xl max-h-full">
-                        <img src="${this.src}" alt="${this.alt}" class="max-w-full max-h-full object-contain">
-                        <button class="absolute top-4 right-4 text-white text-4xl">&times;</button>
-                    </div>
-                `;
-                
-                document.body.appendChild(overlay);
-                
-                // Close on click
-                overlay.addEventListener('click', function(e) {
-                    if (e.target === overlay || e.target.tagName === 'BUTTON') {
-                        document.body.removeChild(overlay);
-                    }
-                });
-            });
-        });
-        
-        // Form Validation Enhancement
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add loading state to OrderOnline form
-            const form = document.querySelector('.orderonline-embed-form');
-            if (form) {
-                form.addEventListener('submit', function() {
-                    const button = form.querySelector('button[type="submit"]');
-                    if (button) {
-                        button.innerHTML = '<span class="loader"></span> Memproses...';
-                        button.disabled = true;
-                    }
-                });
-            }
-        });
-        
-        // Performance Optimization - Lazy Loading
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        observer.unobserve(img);
-                    }
-                });
-            });
-            
-            document.querySelectorAll('img.optimized-img').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-        
-        // Add to Cart Animation
-        function addToCartAnimation(button) {
-            const cartIcon = button.querySelector('i');
-            cartIcon.style.transform = 'scale(1.5)';
-            cartIcon.style.color = '#10B981';
-            
-            setTimeout(() => {
-                cartIcon.style.transform = 'scale(1)';
-                cartIcon.style.color = '';
-            }, 300);
-        }
-        
-        // Newsletter Signup
-        const newsletterForm = document.createElement('form');
-        newsletterForm.innerHTML = `
-            <div class="mt-8">
-                <h4 class="font-poppins font-semibold mb-4">Dapatkan Promo Spesial</h4>
-                <div class="flex">
-                    <input type="email" placeholder="Email Anda" class="flex-1 px-4 py-2 rounded-l-lg text-gray-900" required>
-                    <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-primary px-6 py-2 rounded-r-lg font-semibold transition-colors">
-                        Daftar
-                    </button>
-                </div>
-            </div>
-        `;
-        
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Anda akan menerima promo spesial kami.');
-            this.reset();
-        });
-        
-        // Add newsletter to footer
-        const footerColumn = document.querySelector('footer .grid > div:last-child');
-        if (footerColumn) {
-            footerColumn.appendChild(newsletterForm);
-        }
     </script>
 </body>
 </html>
