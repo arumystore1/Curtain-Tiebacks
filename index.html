@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸Curtain Tiebacks Clips - Beauty House | Elegan & Magnetik</title>
+    <meta name="description" content="Curtain Tiebacks Clips bergaya Japanese elegan dengan magnet kuat. Tersedia 4 varian. Harga promo Rp 154.900 dari Rp 199.999. Order sekarang!">
+    <meta name="keywords" content="curtain tiebacks, clips gorden, aksesori gorden, magnet gorden, dekorasi jendela">
+    <meta name="author" content="Beauty House">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <!-- Anime.js -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif']
+                    },
+                    colors: {
+                        'primary': '#000000',
+                        'secondary': '#4a4a4a',
+                        'accent': '#c0c0c0',
+                        'light-gray': '#9a9a9a'
+                    },
+                    animation: {
+                        'slide-in': 'slideIn 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'bounce-in': 'bounceIn 0.6s ease-out'
+                    },
+                    keyframes: {
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.3)', opacity: '0' },
+                            '50%': { transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom CSS */
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* Hero Background */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(74,74,74,0.6) 100%);
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Button Hover Effects */
+        .btn-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-hover:active {
+            transform: translateY(0);
+        }
+        
+        /* Product Gallery */
+        .gallery-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Social Proof Popup */
+        .social-proof {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 320px;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @media (max-width: 640px) {
+            .social-proof {
+                max-width: 280px;
+                right: 10px;
+                top: 10px;
+            }
+        }
+        
+        /* OrderOnline Form Styling */
+        .ooef {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        /* Countdown Timer */
+        .countdown-item {
+            background: linear-gradient(135deg, #000 0%, #4a4a4a 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        /* Trust Badges */
+        .trust-badge {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .trust-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        /* Loading Animation */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            animation: bounceIn 0.6s ease-out;
+        }
+        
+        /* Responsive Typography */
+        .responsive-heading {
+            font-size: clamp(2rem, 5vw, 4rem);
+        }
+        
+        .responsive-subheading {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+        }
+        
+        /* Image Optimization */
+        .optimized-img {
+            loading: lazy;
+            decoding: async;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a4a4a;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="font-poppins font-bold text-2xl text-primary">
+                    Beauty House
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-secondary hover:text-primary transition-colors">Home</a>
+                    <a href="#product" class="text-secondary hover:text-primary transition-colors">Produk</a>
+                    <a href="#features" class="text-secondary hover:text-primary transition-colors">Fitur</a>
+                    <a href="#order" class="text-secondary hover:text-primary transition-colors">Pesan</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a href="#home" class="block text-secondary hover:text-primary transition-colors">Home</a>
+                <a href="#product" class="block text-secondary hover:text-primary transition-colors">Produk</a>
+                <a href="#features" class="block text-secondary hover:text-primary transition-colors">Fitur</a>
+                <a href="#order" class="block text-secondary hover:text-primary transition-colors">Pesan</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop class="w-full h-full object-cover hidden md:block">
+                <source src="https://s7.ezgif.com/tmp/ezgif-784a3995f3bb8d.mp4" type="video/mp4">
+            </video>
+            <img src="https://nava.orderonline.id/curtain-tiebacks-clips-01" alt="Curtain Tiebacks" class="w-full h-full object-cover md:hidden">
+            <div class="hero-bg absolute inset-0"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 container mx-auto px-4 text-center text-white">
+            <h1 class="responsive-heading font-poppins font-black mb-6" data-aos="fade-up">
+                🌸 Curtain Tiebacks Clips
+            </h1>
+            <p class="responsive-subheading font-roboto font-light mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Aksesori gorden bergaya Japanese elegan dengan magnet kuat untuk tampilan jendela yang lebih sophisticated dan terorganisir
+            </p>
+            
+            <!-- Price Section -->
+            <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
+                <div class="inline-flex items-center space-x-4 bg-white/20 backdrop-blur-md rounded-full px-8 py-4">
+                    <span class="text-2xl line-through text-gray-300">Rp 199.999</span>
+                    <span class="text-4xl font-poppins font-bold text-yellow-400">Rp 154.900</span>
+                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">25% OFF</span>
+                </div>
+                <p class="mt-4 text-lg">Harga untuk 2 PCS (Sepasang)</p>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" data-aos="fade-up" data-aos-delay="600">
+                <div class="trust-badge">
+                    <i data-feather="shield" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
+                    <p class="text-sm font-semibold">Garansi 30 Hari</p>
+                </div>
+                <div class="trust-badge">
+                    <i data-feather="truck" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
+                    <p class="text-sm font-semibold">Gratis Ongkir</p>
+                </div>
+                <div class="trust-badge">
+                    <i data-feather="clock" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
+                    <p class="text-sm font-semibold">Pengiriman Cepat</p>
+                </div>
+                <div class="trust-badge">
+                    <i data-feather="star" class="w-8 h-8 mx-auto mb-2 text-primary"></i>
+                    <p class="text-sm font-semibold">Bahan Premium</p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div data-aos="fade-up" data-aos-delay="800">
+                <a href="#order" class="inline-block bg-primary hover:bg-gray-800 text-white font-poppins font-bold text-xl px-12 py-4 rounded-full btn-hover shadow-2xl">
+                    Pesan Sekarang
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-feather="chevron-down" class="w-8 h-8 text-white"></i>
+        </div>
+    </section>
+    
+    <!-- Product Showcase -->
+    <section id="product" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-poppins font-bold text-center mb-4" data-aos="fade-up">
+                Galeri Produk
+            </h2>
+            <p class="text-center text-secondary mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                4 Varian Elegan untuk Setiap Gaya Dekorasi Anda
+            </p>
+            
+            <!-- Product Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Product Variants -->
+                <div class="feature-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://down-id.img.susercontent.com/file/sg-11134201-7qvd9-ljzgt6bmssyfa5@resize_w450_nl.webp" alt="Type SG" class="w-full h-48 object-cover rounded-lg mb-4 optimized-img">
+                    <h3 class="font-poppins font-bold text-xl mb-2">TYPE - SG</h3>
+                    <p class="text-secondary">Classic White</p>
+                </div>
+                
+                <div class="feature-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://down-id.img.susercontent.com/file/sg-11134201-7qvg0-ljzgt3mipibpcc@resize_w450_nl.webp" alt="Type TR" class="w-full h-48 object-cover rounded-lg mb-4 optimized-img">
+                    <h3 class="font-poppins font-bold text-xl mb-2">TYPE - TR</h3>
+                    <p class="text-secondary">Modern Brown</p>
+                </div>
+                
+                <div class="feature-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbke-m70sext6ie751c@resize_w450_nl.webp" alt="Type TWA" class="w-full h-48 object-cover rounded-lg mb-4 optimized-img">
+                    <h3 class="font-poppins font-bold text-xl mb-2">TYPE - TWA</h3>
+                    <p class="text-secondary">Luxury Blue</p>
+                </div>
+                
+                <div class="feature-card text-center" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbka-m70sext6o0gxab@resize_w450_nl.webp" alt="Type TWB" class="w-full h-48 object-cover rounded-lg mb-4 optimized-img">
+                    <h3 class="font-poppins font-bold text-xl mb-2">TYPE - TWB</h3>
+                    <p class="text-secondary">Beauty Pink</p>
+                </div>
+            </div>
+            
+            <!-- Product Specifications -->
+            <div class="bg-gray-100 rounded-2xl p-8" data-aos="fade-up">
+                <h3 class="font-poppins font-bold text-2xl mb-6 text-center">Spesifikasi Produk</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="circle" class="w-10 h-10"></i>
+                        </div>
+                        <h4 class="font-poppins font-semibold mb-2">Diameter</h4>
+                        <p class="text-secondary">7.5 cm</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="move" class="w-10 h-10"></i>
+                        </div>
+                        <h4 class="font-poppins font-semibold mb-2">Panjang</h4>
+                        <p class="text-secondary">39-42 cm<br><span class="text-sm">(46 cm untuk TWA & TWB)</span></p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="zap" class="w-10 h-10"></i>
+                        </div>
+                        <h4 class="font-poppins font-semibold mb-2">Magnet</h4>
+                        <p class="text-secondary">Magnet Kuat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-poppins font-bold text-center mb-4" data-aos="fade-up">
+                Keunggulan Produk
+            </h2>
+            <p class="text-center text-secondary mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Mengapa Memilih Curtain Tiebacks Clips Kami?
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i data-feather="award" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-xl mb-4">Bahan Premium</h3>
+                    <p class="text-secondary">Material berkualitas tinggi dengan finishing sempurna untuk tampilan elegan</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i data-feather="magnet" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-xl mb-4">Magnet Kuat</h3>
+                    <p class="text-secondary">Dilengkapi magnet neodymium kuat untuk menjaga gorden tetap terikat</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i data-feather="scissors" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-xl mb-4">Mudah Dipasang</h3>
+                    <p class="text-secondary">Desain praktis tanpa peralatan khusus, siap pakai dalam hitungan detik</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i data-feather="eye" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-xl mb-4">Desain Elegan</h3>
+                    <p class="text-secondary">Gaya Japanese minimalis yang cocok untuk berbagai tema dekorasi</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i data-feather="sun" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-xl mb-4">Cahaya Alami</h3>
+                    <p class="text-secondary">Maksimalkan pencahayaan alami dengan mudah menahan gorden</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i data-feather="heart" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-xl mb-4">Tahan Lama</h3>
+                    <p class="text-secondary">Anti-karat dan tahan terhadap perubahan cuaca untuk penggunaan jangka panjang</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing & Promo Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-poppins font-bold mb-8" data-aos="fade-up">
+                Promo Spesial Hari Ini
+            </h2>
+            
+            <!-- Countdown Timer -->
+            <div class="flex justify-center space-x-4 mb-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="countdown-item">
+                    <div id="hours" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Jam</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="minutes" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Menit</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="seconds" class="text-3xl font-bold">00</div>
+                    <div class="text-sm">Detik</div>
+                </div>
+            </div>
+            
+            <!-- Price Display -->
+            <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
+                <p class="text-xl mb-4">Harga Normal:</p>
+                <p class="text-3xl line-through text-gray-400">Rp 199.999</p>
+                <p class="text-2xl mt-4">Harga Promo:</p>
+                <p class="text-6xl font-poppins font-black text-yellow-400">Rp 154.900</p>
+                <p class="text-lg mt-4">Untuk 2 PCS (Sepasang)</p>
+            </div>
+            
+            <!-- CTA Button -->
+            <div data-aos="fade-up" data-aos-delay="600">
+                <a href="#order" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-primary font-poppins font-bold text-xl px-12 py-4 rounded-full btn-hover shadow-2xl">
+                    Pesan Sekarang - Diskon 25%
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Order Section -->
+    <section id="order" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-poppins font-bold text-center mb-4" data-aos="fade-up">
+                Pesan Sekarang
+            </h2>
+            <p class="text-center text-secondary mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Isi formulir di bawah ini untuk memesan Curtain Tiebacks Clips favorit Anda
+            </p>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- OrderOnline Form -->
+                <div class="ooef" data-aos="fade-up" data-aos-delay="400">
+                    <!-- OrderOnline Embed Code - v8.0.4 -->
+                    <div class="ooef">
+                        <form class="orderonline-embed-form" data-username="nava" data-product-slug="curtain-tiebacks-clips-01" data-product-id="68df2d74d35eaf783e0c9ce8" id="oo-embed-form-curtain-tiebacks-clips-01-4717" data-origin="orderonline">
+                            <div class="ooef-loader">
+                                <style>
+                                    .ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}
+                                    @keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                    @-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                    .ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}
+                                    .ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}
+                                    .ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}
+                                    @-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                                    @keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                                </style>
+                                <div aria-live="polite" role="status">
+                                    <div>Loading...</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <script>
+                        if (typeof xLogError != 'function') {
+                            var xLogError = function (error) {
+                                var req = new XMLHttpRequest();
+                                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                                req.open('POST', 'https://api.orderonline.id/log', true);
+                                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                req.send(params);
+                            };
+                        }
+                        try {
+                            if (typeof xEmbedScript != 'function') {
+                                var xEmbedScript = function () {
+                                    !function(w, d, e, v, id, t, s) {
+                                        if (d.getElementById(id)) return;
+                                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                        s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                                };
+                            }
+                            if (typeof xEmbedInit != 'function') {
+                                var xEmbedInit = function (w, n) {
+                                    if (w.ooe) return;
+                                    n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+                                    if (!w._ooe) w._ooe = n; n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                                };
+                            }
+                            xEmbedInit(window);
+                            ooe('setup', 'redirect', 'https://nava.orderonline.id');
+                            ooe('init', '5f119cd08dcbdb2737678706', '68df2d74d35eaf783e0c9ce8', '68df2d74d35eaf783e0c9ce9', 'oo-embed-form-curtain-tiebacks-clips-01-4717', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
+                            if (!window.jQuery) {
+                                !function(w, d, e, v, id, t, s) {
+                                    if (d.getElementById(id)) return;
+                                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                    t.addEventListener('load', xEmbedScript);
+                                    s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                            } else {
+                                xEmbedScript();
+                            }
+                        } catch (e) {
+                            xLogError(e); throw e;
+                        }
+                    </script>
+                    <!-- End OrderOnline Embed Code -->
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-poppins font-bold text-2xl mb-4">Beauty House</h3>
+                    <p class="text-gray-300">Toko aksesori rumah tangga berkualitas dengan desain elegan</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-semibold mb-4">Kontak</h4>
+                    <p class="text-gray-300 mb-2">
+                        <i data-feather="phone" class="w-4 h-4 inline mr-2"></i>
+                        081252355305
+                    </p>
+                    <p class="text-gray-300">
+                        <i data-feather="message-circle" class="w-4 h-4 inline mr-2"></i>
+                        WhatsApp
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-semibold mb-4">Jam Operasional</h4>
+                    <p class="text-gray-300">Senin - Sabtu: 08:00 - 20:00</p>
+                    <p class="text-gray-300">Minggu: 09:00 - 17:00</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-semibold mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="twitter" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 Beauty House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="#order" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-primary font-poppins font-bold px-6 py-3 rounded-full shadow-lg btn-hover">
+            <i data-feather="shopping-cart" class="w-5 h-5 inline mr-2"></i>
+            Pesan Sekarang
+        </a>
+    </div>
+    
+    <!-- Social Proof Popup -->
+    <div id="social-proof-popup" class="social-proof hidden">
+        <div class="bg-white rounded-lg shadow-2xl p-4 border-l-4 border-primary">
+            <div class="flex items-start space-x-3">
+                <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
+                    <span class="text-white font-bold text-sm" id="customer-initial">A</span>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm font-medium text-gray-900" id="customer-message">
+                        Vina dari Jakarta baru saja memesan 🌸Curtain Tiebacks Clips
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1" id="order-time">5 menit yang lalu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const diff = tomorrow - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Social Proof Popup System
+        const customerNames = ['Vina', 'Dina', 'Kartika', 'Lestari', 'Putri', 'Maya Sari', 'Rani', 'Permata', 'Lestari F'];
+        const customerCities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
+        
+        let popupInterval;
+        let hideTimeout;
+        
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+        
+        function getRandomTime() {
+            const minutes = Math.floor(Math.random() * 15) + 1;
+            return `${minutes} menit yang lalu`;
+        }
+        
+        function showSocialProof() {
+            const popup = document.getElementById('social-proof-popup');
+            const name = getRandomItem(customerNames);
+            const city = getRandomItem(customerCities);
+            const initial = name.charAt(0);
+            const message = `${name} dari ${city} baru saja memesan 🌸Curtain Tiebacks Clips`;
+            const time = getRandomTime();
+            
+            document.getElementById('customer-initial').textContent = initial;
+            document.getElementById('customer-message').textContent = message;
+            document.getElementById('order-time').textContent = time;
+            
+            popup.classList.remove('hidden');
+            
+            // Auto hide after 5 seconds
+            hideTimeout = setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Start social proof popup
+        function startSocialProof() {
+            showSocialProof();
+            popupInterval = setInterval(showSocialProof, 8000);
+        }
+        
+        // Pause on hover
+        const popup = document.getElementById('social-proof-popup');
+        popup.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            clearInterval(popupInterval);
+        });
+        
+        popup.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 2000);
+            popupInterval = setInterval(showSocialProof, 8000);
+        });
+        
+        // Start after 3 seconds
+        setTimeout(startSocialProof, 3000);
+        
+        // Sticky CTA Visibility
+        const stickyCta = document.querySelector('.sticky-cta');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 500) {
+                stickyCta.style.display = 'block';
+            } else {
+                stickyCta.style.display = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Image Gallery Lightbox (Simple)
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        galleryItems.forEach(img => {
+            img.addEventListener('click', function() {
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4';
+                overlay.innerHTML = `
+                    <div class="max-w-4xl max-h-full">
+                        <img src="${this.src}" alt="${this.alt}" class="max-w-full max-h-full object-contain">
+                        <button class="absolute top-4 right-4 text-white text-4xl">&times;</button>
+                    </div>
+                `;
+                
+                document.body.appendChild(overlay);
+                
+                // Close on click
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay || e.target.tagName === 'BUTTON') {
+                        document.body.removeChild(overlay);
+                    }
+                });
+            });
+        });
+        
+        // Form Validation Enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading state to OrderOnline form
+            const form = document.querySelector('.orderonline-embed-form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    const button = form.querySelector('button[type="submit"]');
+                    if (button) {
+                        button.innerHTML = '<span class="loader"></span> Memproses...';
+                        button.disabled = true;
+                    }
+                });
+            }
+        });
+        
+        // Performance Optimization - Lazy Loading
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img.optimized-img').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Add to Cart Animation
+        function addToCartAnimation(button) {
+            const cartIcon = button.querySelector('i');
+            cartIcon.style.transform = 'scale(1.5)';
+            cartIcon.style.color = '#10B981';
+            
+            setTimeout(() => {
+                cartIcon.style.transform = 'scale(1)';
+                cartIcon.style.color = '';
+            }, 300);
+        }
+        
+        // Newsletter Signup
+        const newsletterForm = document.createElement('form');
+        newsletterForm.innerHTML = `
+            <div class="mt-8">
+                <h4 class="font-poppins font-semibold mb-4">Dapatkan Promo Spesial</h4>
+                <div class="flex">
+                    <input type="email" placeholder="Email Anda" class="flex-1 px-4 py-2 rounded-l-lg text-gray-900" required>
+                    <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-primary px-6 py-2 rounded-r-lg font-semibold transition-colors">
+                        Daftar
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Anda akan menerima promo spesial kami.');
+            this.reset();
+        });
+        
+        // Add newsletter to footer
+        const footerColumn = document.querySelector('footer .grid > div:last-child');
+        if (footerColumn) {
+            footerColumn.appendChild(newsletterForm);
+        }
+    </script>
+</body>
+</html>
